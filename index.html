@@ -1,17 +1,144 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Calculator</title>
-</head>
-<body>
-    <div class="calculator-frame">
-        <div class="calculator">
-            <div class="screen">
-                <button class="numbers">1</button>
-            </div>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <div class="calculator">
+        <input id="screen" class="screen" type="text" readonly />
+
+        <div class="operation">
+          <input
+            class="calc-input one"
+            type="button"
+            value="1"
+            onclick="update(1);"
+          />
+          <input
+            class="calc-input two"
+            type="button"
+            value="2"
+            onclick="update(2); "
+          />
+          <input
+            class="calc-input three"
+            type="button"
+            value="3"
+            onclick="update(3);"
+          />
+          <input
+            class="calc-input four"
+            type="button"
+            value="4"
+            onclick="update(4);"
+          />
+          <input
+            class="calc-input five"
+            type="button"
+            value="5"
+            onclick="update(5);"
+          />
+          <input
+            class="calc-input six"
+            type="button"
+            value="6"
+            onclick="update(6);"
+          />
+          <input
+            class="calc-input seven"
+            type="button"
+            value="7"
+            onclick="update(7);"
+          />
+          <input
+            class="calc-input eight"
+            type="button"
+            value="8"
+            onclick="update(8);"
+          />
+          <input class="calc-input nine" type="button" value="9"
+          onclick="update(9);"/>
+          <input
+            class="calc-input zero"
+            type="button"
+            value="0"
+            onclick="update(0);"
+          />
+          <input
+            class="calc-input dot"
+            type="button"
+            value="."
+            onclick="update('.');"
+          />
+          <input
+            class="calc-input equal"
+            type="button"
+            value="="
+            onclick="equals()"
+          />
+          <input
+            class="calc-input plus"
+            type="button"
+            value="+"
+            onclick="update('+');"
+          />
+          <input
+            class="calc-input minus"
+            type="button"
+            value="-"
+            onclick="update('-');"
+          />
+          <input
+            class="calc-input multiply"
+            type="button"
+            value="*"
+            onclick="update('*');"
+          />
+          <input
+            class="calc-input divide"
+            type="button"
+            value="/"
+            onclick="update('/');"
+          />
+          <input
+            class="calc-input mod"
+            type="button"
+            value="%"
+            onclick="update('%');"
+          />
+          <input
+            class="calc-input AC"
+            type="button"
+            value="AC"
+            onclick="allClear()"
+          />
+          <input
+            class="calc-input DE"
+            type="button"
+            value="DE"
+            onclick="deleteVal();"
+          />
         </div>
+      </div>
     </div>
-</body>
+
+    <script>
+      function update(value) {
+        document.querySelector("#screen").value += value;
+      }
+      function allClear() {
+        document.querySelector("#screen").value = "";
+      }
+      function deleteVal() {
+        document.querySelector("#screen").value= document.querySelector("#screen").value.toString().slice(0,-1);
+      }
+      function equals(){
+        document.querySelector("#screen").value=eval(document.querySelector("#screen").value.toString());
+      }
+    </script>
+  </body>
 </html>
